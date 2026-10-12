@@ -3,13 +3,11 @@ pub fn binary_search<T: Ord>(items: &[T], target: T) -> bool {
     let mut r = items.len();
 
     while l < r {
-        let c = l + (r - l) / 2; 
+        let c = l + (r - l) / 2;
 
         if items[c] == target {
             return true;
-        }
-        
-        else if items[c] < target {
+        } else if items[c] < target {
             l = c + 1;
         } else {
             r = c;
@@ -25,7 +23,7 @@ mod test {
 
     #[test]
     fn vector_integer_true() {
-        let v = vec![1,2,3];
+        let v = vec![1, 2, 3];
         let target = 3;
 
         assert!(binary_search(&v, target))
@@ -33,12 +31,11 @@ mod test {
 
     #[test]
     fn vector_integer_false() {
-        let v = vec![1,2,3];
+        let v = vec![1, 2, 3];
         let target = 5;
 
         assert!(!binary_search(&v, target))
     }
-
 
     #[test]
     fn vector_str_false() {
